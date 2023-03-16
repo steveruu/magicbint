@@ -15,6 +15,11 @@ function ping(
 }
 
 basic.forever(function() {
-    console.logValue("duration", ping(DigitalPin.P8, DigitalPin.P15));
+    let travel_in_seconds = ping(DigitalPin.P8, DigitalPin.P15) / 1000000;
+    let distance = travel_in_seconds * 340; // cas * rychlost zvuku
+
+    console.logValue("duration", travel_in_seconds);
+    console.logValue("distance in meters", distance);
     basic.pause(3000)
+
 })
